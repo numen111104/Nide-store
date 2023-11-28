@@ -1,41 +1,19 @@
-//import react  
 import React, { useState } from "react";
-
-//import layout
 import LayoutAccount from '../../../Layouts/Account';
-
-//import Head, usePage
 import { Head, usePage } from '@inertiajs/inertia-react';
-
-//import Inertia adapter
 import { Inertia } from "@inertiajs/inertia";
-
-//import Sweet Alert
 import Swal from 'sweetalert2';
-
 export default function CategoryCreate() {
-
-    //destruct props "errors"
     const { errors } = usePage().props;
-
-    //state
     const [name, setName] = useState("");
     const [image, setImage] = useState(null);
-
-    //method "storeCategory"
     const storeCategory = async (e) => {
         e.preventDefault();
-
-        //sending data
         Inertia.post('/account/categories', {
-
-            //data
             name: name,
             image: image
         }, {
             onSuccess: () => {
-
-                //show alert
                 Swal.fire({
                     title: 'Sukses!',
                     text: 'Data berhasil ditambahkan!',
@@ -46,11 +24,10 @@ export default function CategoryCreate() {
             }
         });
     }
-
     return (
         <>
             <Head>
-                <title>Create Category - Nide Store</title>
+                <title>Tambah Kategori - Nide Store</title>
             </Head>
             <LayoutAccount>
                 <div className="row mt-4">

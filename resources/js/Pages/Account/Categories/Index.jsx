@@ -5,16 +5,12 @@ import hasAnyPermission from '../../../Utils/Permissions';
 import Delete from '../../../Shared/Delete';
 import Search from '../../../Shared/Search';
 import Pagination from '../../../Shared/Pagination';
-
 export default function CategoryIndex() {
-
-    //destruct props "categories"
     const { categories } = usePage().props;
-
     return(
         <>
             <Head>
-                <title>Categories - Nide Store</title>
+                <title>Kategori - Nide Store</title>
             </Head>
             <LayoutAccount>
                 <div class="row mt-5">
@@ -27,9 +23,7 @@ export default function CategoryIndex() {
                                 </Link>
                             </div>
                             <div class="col-md-9 col-12 mb-2">
-
                                 <Search URL={'/account/categories'}/>
-                                
                             </div>
                         </div>
                     </div>
@@ -38,7 +32,7 @@ export default function CategoryIndex() {
                     <div className="col-12">
                         <div className="card border-0 rounded shadow-sm border-top-success">
                             <div className="card-header">
-                                <span className="font-weight-bold"><i className="fa fa-folder"></i> Categories</span>
+                                <span className="font-weight-bold"><i className="fa fa-folder"></i> Kategori</span>
                             </div>
                             <div className="card-body text-center">
                                 <div className="table-responsive">
@@ -48,7 +42,7 @@ export default function CategoryIndex() {
                                             <th scope="col" style={{ width: '5%' }}>No.</th>
                                             <th scope="col" style={{ width: '15%' }}>Nama Kategori</th>
                                             <th scope="col" style={{ width: '15%' }}>Gambar</th>
-                                            <th scope="col" style={{ width: '15%' }}>Actions</th>
+                                            <th scope="col" style={{ width: '15%' }}>Aksi</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -72,9 +66,7 @@ export default function CategoryIndex() {
                                         </tbody>
                                     </table>
                                 </div>
-
                                 <Pagination links={categories.links} align={'end'}/>
-                            
                             </div>
                         </div>
                     </div>
@@ -82,5 +74,4 @@ export default function CategoryIndex() {
             </LayoutAccount>
         </>
     )
-
 }

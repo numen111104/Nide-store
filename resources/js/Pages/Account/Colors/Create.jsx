@@ -1,35 +1,17 @@
-//import react
 import React, { useState } from "react";
-
-//import layout
 import LayoutAccount from "../../../Layouts/Account";
-
-//import Head, usePage
 import { Head, usePage } from "@inertiajs/inertia-react";
-
-//import Inertia adapter
 import { Inertia } from "@inertiajs/inertia";
-
-//import Sweet Alert
 import Swal from "sweetalert2";
-
 export default function ColorCreate() {
-    //destruct props "errors"
     const { errors } = usePage().props;
-
-    //state
     const [name, setName] = useState("");
     const [image, setImage] = useState(null);
-
-    //method "storeColor"
     const storeColor = async (e) => {
         e.preventDefault();
-
-        //sending data
         Inertia.post(
             "/account/colors",
             {
-                //data
                 name: name,
                 image: image,
             },
@@ -51,7 +33,7 @@ export default function ColorCreate() {
     return (
         <>
             <Head>
-                <title>Create Color - Nide Store</title>
+                <title>Tambah warna - Nide Store</title>
             </Head>
             <LayoutAccount>
                 <div className="row mt-4">
@@ -60,7 +42,7 @@ export default function ColorCreate() {
                             <div className="card-header">
                                 <span className="font-weight-bold">
                                     <i className="fa fa-palette"></i> Tambah
-                                    Color Baru
+                                    Warna Baru
                                 </span>
                             </div>
                             <div className="card-body">

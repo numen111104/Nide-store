@@ -1,22 +1,11 @@
-//import react  
 import React, {useState} from "react";
-
-//import inertia adapter
 import { Inertia } from '@inertiajs/inertia';
-
 export default function Search({ URL }) {
-
-    //define state search
     const [search, setSearch] = useState('');
-
-    //function "searchHandler"
     const searchHandlder = (e) => {
         e.preventDefault();
-
-        //fetch to search
         Inertia.get(`${URL}?q=${search}`);
     }
-
     return (
         <>
             <form onSubmit={searchHandlder}>
