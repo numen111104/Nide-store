@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers\Web;
 
-
 use Exception;
-use Duitku\Pop;
-use Duitku\Config;
 use App\Models\Cart;
 use App\Models\City;
 use App\Models\Province;
@@ -17,6 +14,7 @@ use Illuminate\Support\Facades\Http;
 
 class CheckoutController extends Controller
 {
+    public $response;
     /**
      * index
      *
@@ -85,7 +83,7 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
-        $duitkuConfig = new Config(config('duitku.merchant_key'), config('duitku.merchant_code'));
+        $duitkuConfig = new \Duitku\Config(config('duitku.merchant_key'), config('duitku.merchant_code'));
         // true for sandbox mode, false for production mode
         $duitkuConfig->setSandboxMode(config('duitku.sandbox_mode'));
         // set sanitizer (default : true)
@@ -187,7 +185,7 @@ class CheckoutController extends Controller
 
             try {
                 // createInvoice Request
-                $responseDuitkuPop = Pop::createInvoice($payload, $duitkuConfig);
+                $responseDuitkuPop = \Duitku\Pop::createInvoice($payload, $duitkuConfig);
 
                 //get reference
                 $getReference = json_decode($responseDuitkuPop, true);

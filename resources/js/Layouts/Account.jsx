@@ -4,29 +4,16 @@ import { usePage } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
 import Sidebar from '../Components/Sidebar';
 export default function LayoutAccount ({children}) {
-
-    //get props auth
     const { auth } = usePage().props
-
-    //state toggle
     const [sidebarToggle, setSidebarToggle] = useState(false);
-
-    //function toggle hanlder
     const sidebarToggleHandler = (e) => {
         e.preventDefault();
 
         if(!sidebarToggle) {
-            //add class on body
             document.body.classList.add('sb-sidenav-toggled');
-
-            //set state "sidebarToggle" to true
             setSidebarToggle(true);
         } else {
-
-            //remove class on body
             document.body.classList.remove('sb-sidenav-toggled');
-
-            //set state "sidebarToggle" to false
             setSidebarToggle(false);
         }
     }

@@ -1,11 +1,6 @@
-//import React
 import React from "react";
-
-//import Link
 import { Link } from '@inertiajs/inertia-react';
-
 export default function Header() {
-
     return (
         <>
             <nav className="navbar-expand-md navbar-dark fixed-top bg-green shadow">

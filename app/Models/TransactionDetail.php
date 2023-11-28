@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class TransactionDetail extends Model
 {
@@ -28,4 +29,26 @@ class TransactionDetail extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+    protected function productImage(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($image) => asset('/storage/products/' . $image),
+        );
+    }
+
+    /**
+     * colorImage
+     *
+     * @return Attribute
+     */
+    protected function colorImage(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($image) => asset('/storage/colors/' . $image),
+        );
+    }
+
+
+
 }

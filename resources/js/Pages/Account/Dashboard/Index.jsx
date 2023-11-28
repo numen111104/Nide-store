@@ -83,7 +83,6 @@ export default function Dashboard() {
                         </div>
                     </div>
                 </div>
-
                 { hasAnyPermission(['dashboard.statistics']) &&
                     <div className="row mt-2">
                         <div className="col-12 col-lg-3 mb-4">

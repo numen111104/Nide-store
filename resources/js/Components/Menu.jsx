@@ -1,10 +1,5 @@
-//import React
 import React, { useState } from "react";
-
-//import link, usePage
 import { Link, usePage } from '@inertiajs/inertia-react';
-
-//import axios
 import axios from "axios";
 
 export default function Menu() {
@@ -57,7 +52,7 @@ export default function Menu() {
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
                                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                                 </svg>
-                                <span className="small d-block">Search</span>
+                                <span className="small d-block">Cari</span>
                             </Link>
                         </li>
                         <li className="nav-item dropup">
@@ -69,7 +64,7 @@ export default function Menu() {
                                     ? <span className='badge badge-warning rounded-pill shadow' id='count-cart'>{dataCarts.total}</span>
                                     : <span className='badge badge-warning rounded-pill shadow' id='count-cart'>0</span>
                                 }
-                                <span className="small d-block">Shopping Cart</span>
+                                <span className="small d-block">Keranjang</span>
                             </Link>
                         </li>
                         <li className="nav-item dropup">
@@ -78,7 +73,7 @@ export default function Menu() {
                                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
                                     <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
                                 </svg>
-                                <span className="small d-block">Account</span>
+                                <span className="small d-block">Akun</span>
                             </Link>
                         </li>
                     </ul>
@@ -90,12 +85,12 @@ export default function Menu() {
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Search</h5>
+                            <h5 className="modal-title" id="exampleModalLabel">Cari</h5>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
                             <div className="input-group">
-                                <input type="text" className="form-control" onChange={((e) => searchHandler(e))} placeholder="search product here..." />
+                                <input type="text" className="form-control" onChange={((e) => searchHandler(e))} placeholder="Cari produk disini" />
                             </div>
                         </div>
                         <div className="modal-body" style={{ height: '300px', overflow: 'auto' }}>
@@ -107,7 +102,6 @@ export default function Menu() {
                                     <h6 className="mt-2">Loading...</h6>
                                 </div>
                             }
-
                             {
                                 products.map((product, index) => (
                                     <a href={`/products/${product.slug}`} className="text-decoration-none text-dark" key={index}>
