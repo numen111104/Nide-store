@@ -1,13 +1,6 @@
-//import React
 import React from 'react';
-
-//import layout
 import LayoutAccount from '../../../Layouts/Account';
-
-//import component Head and usePage
 import { Head, usePage } from '@inertiajs/inertia-react';
-
-//import permissions
 import hasAnyPermission from '../../../Utils/Permissions';
 import {
     Chart as ChartJS,
@@ -20,10 +13,7 @@ import {
     Filler,
     Legend,
 } from 'chart.js';
-
-//import react chart js
 import { Line } from 'react-chartjs-2';
-
 //register chart
 ChartJS.register(
     CategoryScale,
@@ -35,16 +25,12 @@ ChartJS.register(
     Filler,
     Legend
 );
-
 export default function Dashboard() {
-
     //destruct props
     const { auth, count, chart } = usePage().props;
-
     //option chart
     const options = {
         responsive: true,
-        // maintainAspectRatio: false,
         plugins: {
             legend: {
                 position: 'top',
@@ -55,7 +41,6 @@ export default function Dashboard() {
             },
         },
     };
-
     //data chart
     const data = {
         labels: chart.month_name,

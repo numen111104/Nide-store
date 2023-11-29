@@ -57,7 +57,7 @@ class ColorController extends Controller
             'image'     => 'required|image|mimes:png,jpg,svg|max:2048',
         ], [
             'name.required' => 'Nama warnanya apa?',
-            'image.required' => 'Gambarnya pilih dulu!',
+            'image.required' => 'Gambar Iconnya pilih dulu!',
             'image.mimes' => 'Format gambarnya harus berupa PNG, JPG, atau SVG!',
             'image.max' => 'Ukuran gambarnya tidak boleh melebihi 2 MB!',
             'image.image' => 'Filenya harus gambar!',
@@ -90,7 +90,7 @@ class ColorController extends Controller
 
         //render with inertia
         return inertia('Account/Colors/Edit', [
-            'color'          => $color,
+            'color' => $color,
         ]);
     }
 
@@ -109,7 +109,7 @@ class ColorController extends Controller
         $this->validate($request, [
             'name'      => 'required',
         ], [
-            'name.required' => 'The name field is required.',
+            'name.required' => 'Nama warnanya apa?',
         ]);
 
         //check image update

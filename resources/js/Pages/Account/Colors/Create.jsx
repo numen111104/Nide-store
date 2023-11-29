@@ -29,7 +29,6 @@ export default function ColorCreate() {
             }
         );
     };
-
     return (
         <>
             <Head>
@@ -49,7 +48,7 @@ export default function ColorCreate() {
                                 <form onSubmit={storeColor}>
                                     <div className="mb-3">
                                         <label className="form-label fw-bold">
-                                            Gambar
+                                            Icon Warna
                                         </label>
                                         <input
                                             type="file"
@@ -64,10 +63,9 @@ export default function ColorCreate() {
                                             {errors.image}
                                         </div>
                                     )}
-
                                     <div className="mb-3">
                                         <label className="form-label fw-bold">
-                                            Nama Color
+                                            Nama Warna
                                         </label>
                                         <input
                                             type="text"
@@ -84,7 +82,6 @@ export default function ColorCreate() {
                                             {errors.name}
                                         </div>
                                     )}
-
                                     <div>
                                         <button
                                             type="submit"

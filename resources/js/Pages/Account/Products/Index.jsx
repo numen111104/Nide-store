@@ -30,16 +30,16 @@ export default function ProductIndex() {
                 <title>Products - Nide Store</title>
             </Head>
             <LayoutAccount>
-                <div class="row mt-5">
-                    <div class="col-md-8">
-                        <div class="row">
-                            <div class="col-md-3 col-12 mb-2">
-                                <Link href="/account/products/create" class="btn btn-md btn-success border-0 shadow w-100" type="button">
-                                    <i class="fa fa-plus-circle me-2"></i>
+                <div className="row mt-5">
+                    <div className="col-md-8">
+                        <div className="row">
+                            <div className="col-md-3 col-12 mb-2">
+                                <Link href="/account/products/create" className="btn btn-md btn-success border-0 shadow w-100" type="button">
+                                    <i className="fa fa-plus-circle me-2"></i>
                                     Tambah
                                 </Link>
                             </div>
-                            <div class="col-md-9 col-12 mb-2">
+                            <div className="col-md-9 col-12 mb-2">
 
                                 <Search URL={'/account/products'}/>
 

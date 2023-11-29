@@ -36,7 +36,7 @@ export default function Login() {
                 <div className="row justify-content-center">
                     <div className="col-md-4 mt-80">
                         <div className="text-center mb-4">
-                            <img src="/assets/images/logo.png" width={"100"} />
+                            <img src="/assets/images/logo2.png" width={"100"} />
                             <h4>
                                 <strong>NIDE</strong> STORE
                             </h4>

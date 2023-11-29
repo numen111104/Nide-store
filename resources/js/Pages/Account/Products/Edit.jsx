@@ -5,16 +5,14 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { Inertia } from "@inertiajs/inertia";
 import Swal from "sweetalert2";
-export default function ProductEdit() {
-    //destruct props "errors", "categories" & "product"
-    const { errors, categories, product } = usePage().props;
 
+export default function ProductEdit() {
+    const { errors, categories, product } = usePage().props;
     //state
     const [title, setTitle] = useState(product.title);
     const [categoryID, setCategoryID] = useState(product.category_id);
     const [description, setDescription] = useState(product.description);
     const [weight, setWeight] = useState(product.weight);
-    const [discount, setDiscount] = useState(product.discount);
     const [productSize, setProductSize] = useState(product.product_sizes);
 
     //method add more field product size
@@ -59,7 +57,6 @@ export default function ProductEdit() {
                 category_id: categoryID,
                 description: description,
                 weight: weight,
-                discount: discount,
                 product_sizes: productSize,
             },
             {
@@ -80,7 +77,7 @@ export default function ProductEdit() {
     return (
         <>
             <Head>
-                <title>Edit Product - Nide Store</title>
+                <title>Edit Produk - Nide Store</title>
             </Head>
             <LayoutAccount>
                 <div className="row mt-4">
@@ -114,56 +111,46 @@ export default function ProductEdit() {
                                         </div>
                                     )}
 
-                                    <div className="mb-3">
-                                        <label className="form-label fw-bold">
-                                            Kategori
-                                        </label>
-                                        <select
-                                            className="form-select"
-                                            value={categoryID}
-                                            onChange={(e) =>
-                                                setCategoryID(e.target.value)
-                                            }
-                                        >
-                                            <option value="">
-                                                -- Pilih Kategori --
-                                            </option>
-                                            {categories.map((category) => (
-                                                <option
-                                                    value={category.id}
-                                                    key={category.id}
-                                                >
-                                                    {category.name}
-                                                </option>
-                                            ))}
-                                        </select>
-                                    </div>
-                                    {errors.category_id && (
-                                        <div className="alert alert-danger custom-alert">
-                                            {errors.category_id}
-                                        </div>
-                                    )}
-
-                                    <div className="mb-3">
-                                        <label className="form-label fw-bold">
-                                            Deskripsi
-                                        </label>
-                                        <ReactQuill
-                                            theme="snow"
-                                            rows="5"
-                                            value={description}
-                                            onChange={(content) =>
-                                                setDescription(content)
-                                            }
-                                        />
-                                    </div>
-                                    {errors.description && (
-                                        <div className="alert alert-danger custom-alert">
-                                            {errors.description}
-                                        </div>
-                                    )}
-
                                     <div className="row">
+                                        <div className="col-md-6">
+                                            <div className="mb-3">
+                                                <label className="form-label fw-bold">
+                                                    Kategori
+                                                </label>
+                                                <select
+                                                    className="form-select"
+                                                    value={categoryID}
+                                                    onChange={(e) =>
+                                                        setCategoryID(
+                                                            e.target.value
+                                                        )
+                                                    }
+                                                >
+                                                    <option value="">
+                                                        -- Pilih Kategori --
+                                                    </option>
+                                                    {categories.map(
+                                                        (category) => (
+                                                            <option
+                                                                value={
+                                                                    category.id
+                                                                }
+                                                                key={
+                                                                    category.id
+                                                                }
+                                                            >
+                                                                {category.name}
+                                                            </option>
+                                                        )
+                                                    )}
+                                                </select>
+                                            </div>
+                                            {errors.category_id && (
+                                                <div className="alert alert-danger custom-alert">
+                                                    {errors.category_id}
+                                                </div>
+                                            )}
+                                        </div>
                                         <div className="col-md-6">
                                             <div className="mb-3">
                                                 <label className="form-label fw-bold">
@@ -187,30 +174,26 @@ export default function ProductEdit() {
                                                 </div>
                                             )}
                                         </div>
-                                        <div className="col-md-6">
-                                            <div className="mb-3">
-                                                <label className="form-label fw-bold">
-                                                    Diskon
-                                                </label>
-                                                <input
-                                                    type="number"
-                                                    className="form-control"
-                                                    value={discount}
-                                                    onChange={(e) =>
-                                                        setDiscount(
-                                                            e.target.value
-                                                        )
-                                                    }
-                                                    placeholder="Masukkan Diskon"
-                                                />
-                                            </div>
-                                            {errors.discount && (
-                                                <div className="alert alert-danger custom-alert">
-                                                    {errors.discount}
-                                                </div>
-                                            )}
-                                        </div>
                                     </div>
+
+                                    <div className="mb-3">
+                                        <label className="form-label fw-bold">
+                                            Deskripsi
+                                        </label>
+                                        <ReactQuill
+                                            theme="snow"
+                                            rows="5"
+                                            value={description}
+                                            onChange={(content) =>
+                                                setDescription(content)
+                                            }
+                                        />
+                                    </div>
+                                    {errors.description && (
+                                        <div className="alert alert-danger custom-alert">
+                                            {errors.description}
+                                        </div>
+                                    )}
 
                                     <hr />
                                     {/** dynamic size and price */}
@@ -228,7 +211,7 @@ export default function ProductEdit() {
                                                 <div className="col-md-5">
                                                     <div className="mb-3">
                                                         <label className="form-label fw-bold">
-                                                            Size
+                                                            Ukuran
                                                         </label>
                                                         <input
                                                             type="text"
@@ -244,7 +227,7 @@ export default function ProductEdit() {
                                                                 )
                                                             }
                                                             className="form-control"
-                                                            placeholder="Enter Size"
+                                                            placeholder="Masukkan ukuran"
                                                         />
                                                     </div>
                                                 </div>
@@ -267,7 +250,7 @@ export default function ProductEdit() {
                                                                 )
                                                             }
                                                             className="form-control"
-                                                            placeholder="Enter Price"
+                                                            placeholder="Masukkan harga"
                                                         />
                                                     </div>
                                                 </div>

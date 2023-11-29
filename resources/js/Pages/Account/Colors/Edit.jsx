@@ -3,6 +3,7 @@ import LayoutAccount from '../../../Layouts/Account';
 import { Head, usePage } from '@inertiajs/inertia-react';
 import { Inertia } from "@inertiajs/inertia";
 import Swal from 'sweetalert2';
+
 export default function ColorEdit() {
     const { errors, color } = usePage().props;
     const [name, setName] = useState(color.name);

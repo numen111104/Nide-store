@@ -10,7 +10,7 @@ export default function PermissionIndex() {
     return(
         <>
             <Head>
-                <title>Permissions | Nide Store</title>
+                <title>Hak Akses | Nide Store</title>
             </Head>
             <LayoutAccount>
                 <div className="row mt-5">
@@ -26,7 +26,7 @@ export default function PermissionIndex() {
                     <div className="col-12">
                         <div className="card border-0 rounded shadow-sm border-top-success">
                             <div className="card-header">
-                                <span className="font-weight-bold"><i className="fa fa-key"></i> Permissions</span>
+                                <span className="font-weight-bold"><i className="fa fa-key"></i> Hak Akses</span>
                             </div>
                             <div className="card-body">
                                 
@@ -35,7 +35,7 @@ export default function PermissionIndex() {
                                         <thead>
                                         <tr>
                                             <th scope="col" style={{ width: '5%' }}>No.</th>
-                                            <th scope="col">Nama Permission</th>
+                                            <th scope="col">Nama Hak Akses</th>
                                         </tr>
                                         </thead>
                                         <tbody>

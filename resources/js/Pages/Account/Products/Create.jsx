@@ -1,28 +1,12 @@
-//import react
 import React, { useState } from "react";
-
-//import layout
 import LayoutAccount from "../../../Layouts/Account";
-
-//import Head, usePage
 import { Head, usePage } from "@inertiajs/inertia-react";
-
-//import react Quill
 import ReactQuill from "react-quill";
-
-// quill CSS
 import "react-quill/dist/quill.snow.css";
-
-//import Inertia adapter
 import { Inertia } from "@inertiajs/inertia";
-
-//import Sweet Alert
 import Swal from "sweetalert2";
-
 export default function ProductCreate() {
-    //destruct props "errors" & "categories"
     const { errors, categories } = usePage().props;
-
     //state
     const [title, setTitle] = useState("");
     const [categoryID, setCategoryID] = useState("");
@@ -30,40 +14,24 @@ export default function ProductCreate() {
     const [weight, setWeight] = useState("");
     const [discount, setDiscount] = useState("");
     const [productSize, setProductSize] = useState([{ size: "", price: 0 }]);
-
-    //method add more field product size
     const addMoreFields = () => {
         setProductSize([...productSize, { size: "", price: 0 }]);
     };
-
     //method remove field product size
     const removeFields = (index) => {
-        //copy array to new variable
         let newProductSize = [...productSize];
-
-        //remove array by index
         newProductSize.splice(index, 1);
-
-        //set data after remove to state
         setProductSize(newProductSize);
     };
-
     //method set product size and price
     const setProductSizePrice = (i, e) => {
-        //copy array to new variable
         let newProductSize = [...productSize];
-
-        //assign value
         newProductSize[i][e.target.name] = e.target.value;
-
-        //set data to state
         setProductSize(newProductSize);
     };
-
     //method "storeProduct"
     const storeProduct = async (e) => {
         e.preventDefault();
-
         //sending data
         Inertia.post(
             "/account/products",
@@ -94,7 +62,7 @@ export default function ProductCreate() {
     return (
         <>
             <Head>
-                <title>Create Product - Nide Store</title>
+                <title>Tambah Produk - Nide Store</title>
             </Head>
             <LayoutAccount>
                 <div className="row mt-4">
@@ -102,8 +70,8 @@ export default function ProductCreate() {
                         <div className="card border-0 rounded shadow-sm border-top-success">
                             <div className="card-header">
                                 <span className="font-weight-bold">
-                                    <i className="fa fa-shopping-bag"></i> Add
-                                    New Product
+                                    <i className="fa fa-shopping-bag"></i> Tambah
+                                    Produk Baru
                                 </span>
                             </div>
                             <div className="card-body">
@@ -318,7 +286,8 @@ export default function ProductCreate() {
                                             type="submit"
                                             className="btn btn-md btn-success me-2"
                                         >
-                                            <i className="fa fa-save"></i> Save
+                                            <i className="fa fa-save"></i>{" "}
+                                            Simpan
                                         </button>
                                         <button
                                             type="reset"

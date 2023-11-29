@@ -20,6 +20,10 @@ export default function LayoutAccount({ children }) {
         e.preventDefault();
         Inertia.post("/logout");
     };
+    const backHomeHandler = async (e) => {
+        e.preventDefault();
+        Inertia.get("/");
+    }
     return (
         <>
             <div className="d-flex sb-sidenav-toggled" id="wrapper">
@@ -54,6 +58,12 @@ export default function LayoutAccount({ children }) {
                                         >
                                             <i className="fa fa-sign-out-alt me-2"></i>{" "}
                                             Keluar
+                                        </NavDropdown.Item>
+                                        <NavDropdown.Item
+                                            onClick={backHomeHandler}
+                                        >
+                                            <i className="fa fa-home me-2"></i>{" "}
+                                            Home
                                         </NavDropdown.Item>
                                     </NavDropdown>
                                 </ul>
