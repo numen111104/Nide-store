@@ -3,6 +3,8 @@ import { NavDropdown } from "react-bootstrap";
 import { usePage } from "@inertiajs/inertia-react";
 import { Inertia } from "@inertiajs/inertia";
 import Sidebar from "../Components/Sidebar";
+import ModalProfile from "../Components/Profile";
+
 export default function LayoutAccount({ children }) {
     const { auth } = usePage().props;
     const [sidebarToggle, setSidebarToggle] = useState(false);
@@ -23,13 +25,14 @@ export default function LayoutAccount({ children }) {
     const backHomeHandler = async (e) => {
         e.preventDefault();
         Inertia.get("/");
-    }
+    };
+
     return (
         <>
             <div className="d-flex sb-sidenav-toggled" id="wrapper">
                 <div className="bg-sidebar" id="sidebar-wrapper">
                     <div className="sidebar-heading bg-light text-center">
-                        <img src="/assets/images/logo.png" width={"23"} />
+                        <img src="/assets/images/logo.png" width={"20"} />
                         <strong> NIDE</strong> <small>STORE</small>
                     </div>
                     <Sidebar />
@@ -54,16 +57,24 @@ export default function LayoutAccount({ children }) {
                                         id="basic-nav-dropdown"
                                     >
                                         <NavDropdown.Item
-                                            onClick={logoutHandler}
+                                            href="#"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#profile"
                                         >
-                                            <i className="fa fa-sign-out-alt me-2"></i>{" "}
-                                            Keluar
+                                            <i className="fa fa-user me-2"></i>{" "}
+                                            Profil
                                         </NavDropdown.Item>
                                         <NavDropdown.Item
                                             onClick={backHomeHandler}
                                         >
                                             <i className="fa fa-home me-2"></i>{" "}
                                             Home
+                                        </NavDropdown.Item>
+                                        <NavDropdown.Item
+                                            onClick={logoutHandler}
+                                        >
+                                            <i className="fa fa-sign-out-alt me-2"></i>{" "}
+                                            Keluar
                                         </NavDropdown.Item>
                                     </NavDropdown>
                                 </ul>
@@ -73,6 +84,7 @@ export default function LayoutAccount({ children }) {
                     <div className="container-fluid">{children}</div>
                 </div>
             </div>
+            <ModalProfile />
         </>
     );
 }
