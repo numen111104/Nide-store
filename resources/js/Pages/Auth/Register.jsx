@@ -1,10 +1,5 @@
-//import hook react
 import React, { useState } from "react";
-
-//import Head, usePage and Link
 import { Head, usePage, Link } from '@inertiajs/inertia-react';
-
-//import inertia adapter
 import { Inertia } from '@inertiajs/inertia';
 
 export default function Register() {

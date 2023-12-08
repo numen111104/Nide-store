@@ -1,13 +1,6 @@
-//import react  
 import React, { useState } from "react";
-
-//import usePage
 import { usePage } from '@inertiajs/inertia-react';
-
-//import Inertia adapter
 import { Inertia } from "@inertiajs/inertia";
-
-//import Sweet Alert
 import Swal from 'sweetalert2';
 
 export default function SliderCreate() {
@@ -35,7 +28,7 @@ export default function SliderCreate() {
                 //show alert
                 Swal.fire({
                     title: 'Success!',
-                    text: 'Data saved successfully!',
+                    text: 'Data berhasil disimpan!!',
                     icon: 'success',
                     showConfirmButton: false,
                     timer: 1500
@@ -54,33 +47,33 @@ export default function SliderCreate() {
                 <div className="col-12">
                     <div className="card border-0 rounded shadow-sm border-top-success">
                         <div className="card-header">
-                            <span className="font-weight-bold"><i className="fa fa-images"></i> Upload Image Slider</span>
+                            <span className="font-weight-bold"><i className="fa fa-images"></i> Upload Gambar Slider</span>
                         </div>
                         <div className="card-body">
                             <form onSubmit={storeSlider}>
 
                                 <div className="mb-3">
-                                    <label className="form-label fw-bold">Image</label>
+                                    <label className="form-label fw-bold">Gambar</label>
                                     <input type="file" className="form-control" onChange={(e) => setImage(e.target.files[0])} />
                                 </div>
                                 {errors.image && (
-                                    <div className="alert alert-danger">
+                                    <div className="alert alert-danger custom-alert">
                                         {errors.image}
                                     </div>
                                 )}
 
                                 <div className="mb-3">
                                     <label className="form-label fw-bold">Link</label>
-                                    <input type="text" className="form-control" value={link} onChange={(e) => setLink(e.target.value)} placeholder="Enter Link Slider" />
+                                    <input type="text" className="form-control" value={link} onChange={(e) => setLink(e.target.value)} placeholder="Masukkan link slider" />
                                 </div>
                                 {errors.link && (
-                                    <div className="alert alert-danger">
+                                    <div className="alert alert-danger custom-alert">
                                         {errors.link}
                                     </div>
                                 )}
 
                                 <div>
-                                    <button type="submit" className="btn btn-md btn-success me-2"><i className="fa fa-save"></i> Save</button>
+                                    <button type="submit" className="btn btn-md btn-success me-2"><i className="fa fa-save"></i> Simpan</button>
                                     <button type="reset" className="btn btn-md btn-warning"><i className="fa fa-redo"></i> Reset</button>
                                 </div>
 

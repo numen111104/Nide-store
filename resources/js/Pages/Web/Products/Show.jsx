@@ -1,16 +1,7 @@
-//import React
 import React, { useState } from "react";
-
-//import layout web
 import LayoutWeb from '../../../Layouts/Web';
-
-//import Head, usePage
 import { Head, usePage } from '@inertiajs/inertia-react';
-
-//import formatPrice
 import FormatPrice from '../../../Utils/FormatPrice';
-
-//import component add to cart
 import AddTocart from './AddToCart';
 
 export default function ProductShow() {
@@ -24,24 +15,23 @@ export default function ProductShow() {
     const [colorImage, setColorImage] = useState(product.product_images[0].color.image);
     const [size, setSize] = useState(product.product_sizes[0].size);
     const [price, setPrice] = useState(product.product_sizes[0].price);
-
     //method changeImage
     const changeImage = (color) => {
         setProductImage(color.image);
         setColor(color.color.name);
         setColorImage(color.color.image);
     }
-
     //method changeSizeAndPrice
     const changeSizeAndPrice = (size, price) => {
         setSize(size);
         setPrice(price);
     }
+    console.log(productImage, color, colorImage, size, price);
 
     return (
         <>
             <Head>
-                <title>{`${product.title} - Geek Store - Where Developer Shopping`}</title>
+                <title>{`${product.title} - Nide Store - Tempat Belanja Online`}</title>
             </Head>
             <LayoutWeb>
 
@@ -68,7 +58,7 @@ export default function ProductShow() {
                                         </div>
 
                                         <div className="colors mt-4">
-                                            <i>Colors</i>
+                                            <i>Warna</i>
                                             <div className="mt-2">
                                                 {product.product_images.map((color, index) => (
                                                     <button onClick={() => changeImage(color)} key={index} className="btn btn-transparent btn-sm me-2 border-0 text-center">
@@ -91,7 +81,7 @@ export default function ProductShow() {
 
                                 <div className="card border-0 rounded shadow-sm mb-5">
                                     <div className="card-body">
-                                        <h5>Description</h5>
+                                        <h5>Deskripsi</h5>
                                         <hr />
                                         <div dangerouslySetInnerHTML={{ __html: product.description }} />
                                     </div>

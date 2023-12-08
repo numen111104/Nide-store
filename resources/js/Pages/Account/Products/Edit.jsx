@@ -8,51 +8,51 @@ import Swal from "sweetalert2";
 
 export default function ProductEdit() {
     const { errors, categories, product } = usePage().props;
-    //state
+    // State
     const [title, setTitle] = useState(product.title);
     const [categoryID, setCategoryID] = useState(product.category_id);
     const [description, setDescription] = useState(product.description);
     const [weight, setWeight] = useState(product.weight);
     const [productSize, setProductSize] = useState(product.product_sizes);
 
-    //method add more field product size
+    // Menambahkan field produk size
     const addMoreFields = () => {
         setProductSize([...productSize, { size: "", price: 0 }]);
     };
 
-    //method remove field product size
+    // Method untuk menghapus field product size
     const removeFields = (index) => {
-        //copy array to new variable
+        // Salin array ke variabel baru
         let newProductSize = [...productSize];
 
-        //remove array by index
+        // Hapus array berdasarkan indeks
         newProductSize.splice(index, 1);
 
-        //set data after remove to state
+        // Set data setelah dihapus ke dalam state
         setProductSize(newProductSize);
     };
 
-    //method set product size and price
+    // Method untuk mengatur ukuran dan harga produk
     const setProductSizePrice = (i, e) => {
-        //copy array to new variable
+        // Salin array ke variabel baru
         let newProductSize = [...productSize];
 
-        //assign value
+        // Tentukan nilai
         newProductSize[i][e.target.name] = e.target.value;
 
-        //set data to state
+        // Set data ke dalam state
         setProductSize(newProductSize);
     };
 
-    //method "updateProduct"
+    // Method "updateProduct"
     const updateProduct = async (e) => {
         e.preventDefault();
 
-        //sending data
+        // Mengirim data
         Inertia.put(
             `/account/products/${product.id}`,
             {
-                //data
+                // Data
                 title: title,
                 category_id: categoryID,
                 description: description,
@@ -61,7 +61,7 @@ export default function ProductEdit() {
             },
             {
                 onSuccess: () => {
-                    //show alert
+                    // Tampilkan alert
                     Swal.fire({
                         title: "Sukses!",
                         text: "Data berhasil diperbarui!",
@@ -168,7 +168,7 @@ export default function ProductEdit() {
                                                     placeholder="Masukkan berat (Gram)"
                                                 />
                                             </div>
-                                            {errors.phone && (
+                                            {errors.weight && (
                                                 <div className="alert alert-danger custom-alert">
                                                     {errors.weight}
                                                 </div>
@@ -277,6 +277,14 @@ export default function ProductEdit() {
                                             </div>
                                         ))}
 
+                                        {errors.product_sizes && (
+                                            <div className="col-md-12">
+                                                <div className="alert alert-danger custom-alert">
+                                                    {errors.product_sizes}
+                                                </div>
+                                            </div>
+                                        )}
+
                                         <div className="col-md-12">
                                             <button
                                                 type="button"
@@ -294,7 +302,7 @@ export default function ProductEdit() {
                                             className="btn btn-md btn-success me-2"
                                         >
                                             <i className="fa fa-save"></i>
-                                            Update
+                                            Perbarui
                                         </button>
                                         <button
                                             type="reset"

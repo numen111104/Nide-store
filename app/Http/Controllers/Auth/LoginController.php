@@ -25,29 +25,27 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
+        // Validasi data input
         $request->validate([
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required',
         ], [
             'email.required' => 'Emailnya kosong nih!',
             'email.email' => 'Emailnya ngaco!',
-            'password.required' => 'Passwordnya kosong nih!'
+            'password.required' => 'Passwordnya kosong nih!',
         ]);
-
-        //get email and password from request
+        // Ambil email dan password dari request
         $credentials = $request->only('email', 'password');
-
-        //attempt to login
-        if (auth()->attempt($credentials)) {
-
-            //regenerate session
+         // Coba login
+        $tryLogin = auth()->attempt($credentials);
+        // Jika login sukses
+        if ($tryLogin) {
+            // Regenerate session
             $request->session()->regenerate();
-
-            //redirect route dashboard
+            // Redirect ke halaman dashboard
             return redirect()->route('account.dashboard');
         }
-
-        //if login fails
+        // Jika login gagal
         return back()->withErrors([
             'email' => 'Data Anda tidak ada di sistem kami.',
         ]);

@@ -24,7 +24,7 @@ export default function AddToCart({ product_id, productImage, color, colorImage,
             //show alert
             Swal.fire({
                 title: 'Oopss!',
-                text: 'Please login!',
+                text: 'Login dulu ngabs!!',
                 icon: 'error',
                 showConfirmButton: false,
                 timer: 3000

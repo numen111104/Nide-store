@@ -28,71 +28,71 @@ export default function ModalProfile() {
                             ></button>
                         </div>
                         <div className="modal-body p-4">
-                            <div className="card-body p-4">
+                            <div className="card-body p-4 text-center">
+                                <div className="card-body mb-4">
+                                    <img
+                                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                                        alt="avatar"
+                                        className="rounded-circle img-fluid"
+                                        style={{ width: "150px" }}
+                                    />
+                                </div>
                                 <h6>Informasi Akun</h6>
                                 <hr className="mt-0 mb-4" />
+
                                 <div className="row pt-1">
-                                    <div className="col-6 mb-3">
+                                    <div className="mb-3">
                                         <h6>Nama Lengkap</h6>
                                         <p className="text-muted">
                                             {auth.user.name}
                                         </p>
                                     </div>
-                                    <div className="row pt-1">
-                                        <div className="col-6 mb-3">
-                                            <h6>Email</h6>
-                                            <p className="text-muted">
-                                                {auth.user.email}
-                                            </p>
-                                        </div>
+
+                                    <div className="mb-3">
+                                        <h6>Email</h6>
+                                        <p className="text-muted">
+                                            {auth.user.email}
+                                        </p>
                                     </div>
-                                    <div className="row pt-1">
-                                        <div className="col-6 mb-3">
-                                            <h6>Role Akun</h6>
-                                            <p className="text-muted">
-                                                {auth.user.roles[0].name}
-                                            </p>
-                                        </div>
+
+                                    <div className="mb-3">
+                                        <h6>Role Akun</h6>
+                                        <p className="text-muted">
+                                            {auth.user.roles[0].name}
+                                        </p>
                                     </div>
-                                    <div className="row pt-1">
-                                        <div className="col-6 mb-3">
-                                            <h6>Hak Akses</h6>
-                                            <p className="text-muted">
-                                                {auth.user.roles[0].permissions
-                                                    .length >= 30
-                                                    ? "Semua akses"
-                                                    : auth.user.roles[0].permissions.map(
-                                                          (
-                                                              permission,
-                                                              index
-                                                          ) => (
-                                                              <span key={index}>
-                                                                  {
-                                                                      permission.name
-                                                                  }
-                                                                  {index <
-                                                                      auth.user
-                                                                          .roles[0]
-                                                                          .permissions
-                                                                          .length -
-                                                                          1 && (
-                                                                      <br />
-                                                                  )}
-                                                              </span>
-                                                          )
-                                                      )}
-                                            </p>
-                                        </div>
+
+                                    <div className="mb-3">
+                                        <h6>Hak Akses</h6>
+                                        <p className="text-muted">
+                                            {auth.user.roles[0].permissions
+                                                .length >= 30
+                                                ? "Semua akses"
+                                                : auth.user.roles[0].permissions.map(
+                                                      (permission, index) => (
+                                                          <span key={index}>
+                                                              {permission.name}
+                                                              {index <
+                                                                  auth.user
+                                                                      .roles[0]
+                                                                      .permissions
+                                                                      .length -
+                                                                      1 && (
+                                                                  <br />
+                                                              )}
+                                                          </span>
+                                                      )
+                                                  )}
+                                        </p>
                                     </div>
-                                    <div className="row pt-1">
-                                        <div className="col-6 mb-3">
-                                            <h6>Tanggal dibuat</h6>
-                                            <p className="text-muted">
-                                                {new Date(
-                                                    auth.user.created_at
-                                                ).toLocaleDateString("id-ID")}
-                                            </p>
-                                        </div>
+
+                                    <div className="mb-3">
+                                        <h6>Tanggal dibuat</h6>
+                                        <p className="text-muted">
+                                            {new Date(
+                                                auth.user.created_at
+                                            ).toLocaleDateString("id-ID")}
+                                        </p>
                                     </div>
                                 </div>
                             </div>

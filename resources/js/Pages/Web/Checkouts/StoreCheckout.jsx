@@ -1,10 +1,6 @@
-//import React
 import React from "react";
-
-//import inertia adapter
 import { Inertia } from '@inertiajs/inertia';
 
-//import Sweet Alert
 import Swal from 'sweetalert2';
 
 export default function StoreCheckout({ provinceID, cityID, courierName, courierService, courierCost, weight, grandTotal, address }) {
@@ -29,8 +25,8 @@ export default function StoreCheckout({ provinceID, cityID, courierName, courier
 
                 //show alert
                 Swal.fire({
-                    title: 'Success!',
-                    text: 'Checkout successfully!',
+                    title: 'Sukses!',
+                    text: 'Pembayaran berhasil!',
                     icon: 'success',
                     showConfirmButton: false,
                     timer: 3000

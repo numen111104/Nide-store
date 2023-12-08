@@ -1,13 +1,6 @@
-//import React
 import React from "react";
-
-//import layout web
 import LayoutWeb from "../../../Layouts/Web";
-
-//import Head, usePage
 import { Head, usePage } from "@inertiajs/inertia-react";
-
-//import component slider
 import CardProduct from "../../../Shared/CardProduct";
 
 export default function CategoryShow() {
@@ -17,7 +10,7 @@ export default function CategoryShow() {
     return (
         <>
             <Head>
-                <title>{`${category.name} - Nide Store - Where Developer Shopping`}</title>
+                <title>{`${category.name} - Nide Store - Tempat Belanja Online`}</title>
             </Head>
             <LayoutWeb>
                 <div className="container mt-80 mb-5">
@@ -27,7 +20,7 @@ export default function CategoryShow() {
                                 <div className="row mb-5">
                                     <div className="col-md-12">
                                         <div className="alert alert-warning border-0 shadow-sm rounded-3">
-                                            Products Category :{" "}
+                                            Kategori Produk:{" "}
                                             <strong>{category.name}</strong>
                                         </div>
                                     </div>

@@ -1,16 +1,7 @@
-//import React
 import React from "react";
-
-//import layout web
 import LayoutWeb from "../../../Layouts/Web";
-
-//import Head, usePage
 import { Head, usePage } from "@inertiajs/inertia-react";
-
-//import component card category
 import CardCategory from "../../../Shared/CardCategory";
-
-//import component pagination
 import Pagination from "../../../Shared/Pagination";
 
 export default function CategoryIndex() {
@@ -21,7 +12,7 @@ export default function CategoryIndex() {
         <>
             <Head>
                 <title>
-                    Categories - Nide Store - Where Developer Shopping
+                    Kategori - Nide Store - Tempat Belanja Online
                 </title>
             </Head>
             <LayoutWeb>
@@ -32,7 +23,7 @@ export default function CategoryIndex() {
                                 <div className="row justify-content-center">
                                     <div className="col-md-12">
                                         <div className="alert alert-warning border-0 shadow-sm rounded-3">
-                                            <strong>All Categories</strong>
+                                            <strong>Semua Kategori</strong>
                                         </div>
                                     </div>
 

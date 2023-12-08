@@ -1,7 +1,4 @@
-//import React
 import React from "react";
-
-//import Link
 import { Link } from '@inertiajs/inertia-react';
 
 export default function CardCategory({ category }) {

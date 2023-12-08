@@ -18,12 +18,14 @@ class CategoryController extends Controller
     public function index()
     {
         //get categories
-        $categories = Category::when(request()->q, function($categories) {
-            $categories = $categories->where('name', 'like', '%'. request()->q . '%');
+        $categories = Category::when(request()->q, function ($categories) {
+            $categories = $categories->where('name', 'like', '%' . request()->q . '%');
         })->latest()->paginate(5);
 
         //append query string to pagination links
-        $categories->appends(['q' => request()->q]);
+        $categories->appends([
+            'q' => request()->q
+        ]);
 
         //return inertia
         return inertia('Account/Categories/Index', [
@@ -105,7 +107,7 @@ class CategoryController extends Controller
          * validate
          */
         $this->validate($request, [
-            'name'          => 'required|unique:categories,name,'.$category->id,
+            'name'          => 'required|unique:categories,name,' . $category->id,
         ], [
             'name.required'  => 'Nama kategorinya apa?',
             'name.unique'    => 'Namanya udah ada!',
@@ -115,19 +117,18 @@ class CategoryController extends Controller
         if ($request->file('image')) {
 
             //remove old image
-            Storage::disk('local')->delete('public/categories/'.basename($category->image));
-        
+            Storage::disk('local')->delete('public/categories/' . basename($category->image));
+
             //upload new image
             $image = $request->file('image');
             $image->storeAs('public/categories', $image->hashName());
 
             //update category with new image
             $category->update([
-                'image'=> $image->hashName(),
+                'image' => $image->hashName(),
                 'name' => $request->name,
                 'slug'          => Str::slug($request->name, '-')
             ]);
-
         }
 
         //update category without image
@@ -152,7 +153,7 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
 
         //remove image
-        Storage::disk('local')->delete('public/categories/'.basename($category->image));
+        Storage::disk('local')->delete('public/categories/' . basename($category->image));
 
         //delete
         $category->delete();

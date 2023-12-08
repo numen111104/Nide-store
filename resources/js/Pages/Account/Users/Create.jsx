@@ -1,16 +1,7 @@
-
 import React, { useState } from "react";
-
-//import layout
 import LayoutAccount from "../../../Layouts/Account";
-
-//import Head, usePage
 import { Head, usePage } from "@inertiajs/inertia-react";
-
-//import Inertia adapter
 import { Inertia } from "@inertiajs/inertia";
-
-//import Sweet Alert
 import Swal from "sweetalert2";
 
 export default function UserCreate() {

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\HomeController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,9 +19,14 @@ use App\Http\Controllers\Web\HomeController;
 require __DIR__ . '\home.php';
 // AUTH ROUTES
 require __DIR__ . '\auth.php';
-//prefix "account"
-Route::prefix('account')->group(function () {
-    //middleware "auth"
-    require __DIR__ . '\resources.php';
+
+
+require __DIR__ . '\resources.php';
+// ERROR
+Route::inertia('404', 'Error/Error404')->name('error404');
+Route::fallback(function () {
+    return redirect()->route('error404');
 });
+
+
 

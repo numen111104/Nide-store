@@ -1,13 +1,6 @@
-//import react  
 import React from "react";
-
-//import layout
 import LayoutAccount from '../../../Layouts/Account';
-
-//import Head, usePage
 import { Head, usePage } from '@inertiajs/inertia-react';
-
-//import formatPrice
 import FormatPrice from '../../../Utils/FormatPrice';
 
 export default function TransactionShow() {
@@ -18,7 +11,7 @@ export default function TransactionShow() {
     return (
         <>
             <Head>
-                <title>Detail Transaction - Nide Store</title>
+                <title>Detail Transaksi - Nide Store</title>
             </Head>
             <LayoutAccount>
                 <div className="row mt-4 mb-4">
@@ -42,7 +35,7 @@ export default function TransactionShow() {
                                     </tr>
                                     <tr>
                                         <td>
-                                            FULL NAME
+                                            NAMA LENGKAP
                                         </td>
                                         <td>:</td>
                                         <td className="p-2">
@@ -51,7 +44,7 @@ export default function TransactionShow() {
                                     </tr>
                                     <tr>
                                         <td>
-                                            COURIER / SERVICE / COST
+                                            KURIR / LAYANAN / BIAYA
                                         </td>
                                         <td>:</td>
                                         <td className="p-2">
@@ -61,7 +54,7 @@ export default function TransactionShow() {
                                     </tr>
                                     <tr>
                                         <td>
-                                            CITY
+                                            KOTA
                                         </td>
                                         <td>:</td>
                                         <td className="p-2">
@@ -70,7 +63,7 @@ export default function TransactionShow() {
                                     </tr>
                                     <tr>
                                         <td>
-                                            PROVINCE
+                                            PROVINSI
                                         </td>
                                         <td>:</td>
                                         <td className="p-2">
@@ -79,16 +72,17 @@ export default function TransactionShow() {
                                     </tr>
                                     <tr>
                                         <td>
-                                            ADDRESS
+                                            ALAMAT
                                         </td>
                                         <td>:</td>
                                         <td className="p-2">
                                             {transaction.address}
                                         </td>
                                     </tr>
+                                
                                     <tr>
                                         <td>
-                                            GRAND TOTAL
+                                            TOTAL
                                         </td>
                                         <td>:</td>
                                         <td className="p-2">

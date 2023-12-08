@@ -39,7 +39,6 @@ class RoleController extends Controller
     {
         //get permission all
         $permissions = Permission::all();
-
         //render with inertia
         return inertia('Account/Roles/Create', [
             'permissions' => $permissions,
@@ -60,6 +59,9 @@ class RoleController extends Controller
         $this->validate($request, [
             'name'          => 'required',
             'permissions'   => 'required',
+        ], [
+            'name.required' => 'Nama rolenya apa?',
+            'permissions.required' => 'Pilih Hak aksesnya!!',
         ]);
 
         //create role
@@ -104,7 +106,7 @@ class RoleController extends Controller
             'permissions'   => 'required',
         ], [
             'name.required' => 'Nama rolenya apa?',
-            'permissions.required' => 'Centang permissionnya!!',
+            'permissions.required' => 'Pilih Hak Aksesnya!!',
         ]);
 
         //update role

@@ -1,22 +1,9 @@
-//import react  
 import React from "react";
-
-//import layout
 import LayoutAccount from '../../../Layouts/Account';
-
-//import Head, usePage, Link
 import { Head, usePage, Link } from '@inertiajs/inertia-react';
-
-//import permissions
 import hasAnyPermission from '../../../Utils/Permissions';
-
-//import formatPrice
 import FormatPrice from '../../../Utils/FormatPrice';
-
-//import component search
 import Search from '../../../Shared/Search';
-
-//import component pagination
 import Pagination from '../../../Shared/Pagination';
 
 export default function TransactionIndex() {
@@ -27,7 +14,7 @@ export default function TransactionIndex() {
     return (
         <>
             <Head>
-                <title>Transactions - Nide Store</title>
+                <title>Transaksi - Nide Store</title>
             </Head>
             <LayoutAccount>
                 <div className="row mt-5">

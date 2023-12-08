@@ -12,7 +12,6 @@ export default function ProductCreate() {
     const [categoryID, setCategoryID] = useState("");
     const [description, setDescription] = useState("");
     const [weight, setWeight] = useState("");
-    const [discount, setDiscount] = useState("");
     const [productSize, setProductSize] = useState([{ size: "", price: 0 }]);
     const addMoreFields = () => {
         setProductSize([...productSize, { size: "", price: 0 }]);
@@ -41,7 +40,6 @@ export default function ProductCreate() {
                 category_id: categoryID,
                 description: description,
                 weight: weight,
-                discount: discount,
                 product_sizes: productSize,
             },
             {
@@ -59,6 +57,7 @@ export default function ProductCreate() {
         );
     };
 
+    console.log(categories)
     return (
         <>
             <Head>

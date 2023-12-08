@@ -1,48 +1,34 @@
-//import react  
 import React, { useState } from "react";
-
-//import layout
 import LayoutAccount from '../../../Layouts/Account';
-
-//import Head, usePage
 import { Head, usePage } from '@inertiajs/inertia-react';
-
-//import component pagination
 import Pagination from '../../../Shared/Pagination';
-
-//import component delete
 import Delete from '../../../Shared/Delete';
-
-//import Inertia adapter
 import { Inertia } from "@inertiajs/inertia";
-
-//import Sweet Alert
 import Swal from 'sweetalert2';
 
 export default function ProductShow() {
 
-    //destruct props "product", "colors" & "errors"
+    // Menggunakan destructuring pada props "product", "colors", & "errors"
     const { product, colors, errors } = usePage().props;
 
-    //define state
+    // Mendefinisikan state
     const [colorID, setColorID] = useState('');
     const [image, setImage] = useState('');
 
-    //method storeImage
+    // Method storeImage
     const storeImage = async (e) => {
         e.preventDefault();
 
-        //sending data
+        // Mengirimkan data
         Inertia.post('/account/products/store_image_product', {
 
-            //data
+            // Data
             image: image,
             color_id: colorID,
             product_id: product.id
         }, {
             onSuccess: () => {
 
-                //show alert
                 Swal.fire({
                     title: 'Sukses!',
                     text: 'Data berhasil ditambahkan!',
@@ -51,12 +37,13 @@ export default function ProductShow() {
                     timer: 1500
                 });
 
-                //set state to null
+                // Mengatur state menjadi null
                 setImage(null);
                 setColorID('');
             }
         });
     }
+
 
     return (
         <>
@@ -86,7 +73,7 @@ export default function ProductShow() {
                                     <div className="mb-3">
                                         <label className="form-label fw-bold">Color</label>
                                         <select className="form-select" value={colorID} onChange={(e) => setColorID(e.target.value)}>
-                                            <option value="">-- Pilih Color --</option>
+                                            <option value="">-- Pilih Warna --</option>
                                             {
                                                 colors.map((color) => (
                                                     <option value={color.id} key={color.id}>{color.name}</option>
@@ -124,9 +111,9 @@ export default function ProductShow() {
                                             <tr>
                                                 <th scope="col" style={{ width: '5%' }}>No.</th>
                                                 <th scope="col" style={{ width: '20%' }}>Gambar Produk</th>
-                                                <th scope="col" style={{ width: '15%' }}>Gambar Color</th>
-                                                <th scope="col" style={{ width: '15%' }}>Nama Color</th>
-                                                <th scope="col" style={{ width: '15%' }}>Actions</th>
+                                                <th scope="col" style={{ width: '15%' }}>Icon Warna</th>
+                                                <th scope="col" style={{ width: '15%' }}>Nama Warna</th>
+                                                <th scope="col" style={{ width: '15%' }}>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>

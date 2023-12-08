@@ -1,26 +1,12 @@
-//import react
 import React from "react";
-
-//import layout
 import LayoutAccount from "../../../Layouts/Account";
-
-//import Head, usePage, Link
 import { Head, usePage, Link } from "@inertiajs/inertia-react";
-
-//import permissions
 import hasAnyPermission from "../../../Utils/Permissions";
-
-//import component search
 import Search from "../../../Shared/Search";
-
-//import component pagination
 import Pagination from "../../../Shared/Pagination";
-
-// import Delete
 import Delete from "../../../Shared/Delete";
 
 export default function RoleIndex() {
-    //destruct props "roles"
     const { roles } = usePage().props;
 
     return (
@@ -53,7 +39,7 @@ export default function RoleIndex() {
                         <div className="card border-0 rounded shadow-sm border-top-success">
                             <div className="card-header">
                                 <span className="font-weight-bold">
-                                    <i className="fa fa-shield-alt"></i> Roles
+                                    <i className="fa fa-shield-alt"></i> Role
                                 </span>
                             </div>
                             <div className="card-body text-center">
@@ -77,13 +63,13 @@ export default function RoleIndex() {
                                                     scope="col"
                                                     style={{ width: "50%" }}
                                                 >
-                                                    Permissions
+                                                    Hak Akses
                                                 </th>
                                                 <th
                                                     scope="col"
                                                     style={{ width: "15%" }}
                                                 >
-                                                    Actions
+                                                    Aksi
                                                 </th>
                                             </tr>
                                         </thead>

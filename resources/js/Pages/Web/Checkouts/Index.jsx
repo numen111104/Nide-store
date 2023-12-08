@@ -1,26 +1,13 @@
-//import React
 import React, { useState } from "react";
-
-//import layout web
-import LayoutWeb from '../../../Layouts/Web';
-
-//import Head, usePage
+import LayoutWeb from '../../../Layouts/Web'
 import { Head, usePage } from '@inertiajs/inertia-react';
-
-//import formatPrice
 import FormatPrice from '../../../Utils/FormatPrice';
-
-//import axios
 import axios from "axios";
-
-//import component storeCheckout
 import StoreCheckout from './StoreCheckout';
 
 export default function CheckoutIndex() {
-
     //destruct props "provinces"
     const { provinces, dataCarts } = usePage().props;
-
     //define state
     const [provinceID, setProvinceID] = useState('');
     const [cityID, setCityID] = useState('');
@@ -40,10 +27,8 @@ export default function CheckoutIndex() {
 
     //method getCityByProvince
     const getCityByProvince = async (province_id) => {
-
         //set state province ID
         setProvinceID(province_id);
-
         //get cities by province id
         axios.get(`/checkouts/cities?province_id=${province_id}`)
             .then(response => {
@@ -53,65 +38,49 @@ export default function CheckoutIndex() {
 
     //method show courier expedition
     const showCourierExpedition = (city_id) => {
-
         //set state cityID
         setCityID(city_id)
-
         //set state showCourier
         setShowCourier(true);
     }
 
     //method checkOngkir
     const checkOngkir = (e) => {
-
         //set state isLoading
         setIsLoading(true);
-
         //set state setShowOngkir to false
         setShowOngkir(false);
-
         //set courierName
         setCourierName(e.target.value);
-
         axios.post('/checkouts/checkOngkir', {
-
             destination: cityID,
             weight: dataCarts.weight,
             courier: e.target.value
-
         }).then(response => {
-
             //set data to state ongkir
             setOngkirs(response.data);
-
             //set state isLoading to false
             setIsLoading(false);
-
             //set state setShowOngkir to true
             setShowOngkir(true);
-
         });
     }
 
     //method getServiceAndCost
     const getServiceAndCost = (e) => {
-
         //split value dengan menghapus string -> | 
         let shipping = e.target.value.split("|");
-
         //set state
         setCourierCost(shipping[0]);
         setCourierService(shipping[1]);
-
         //sum grandTotal
         setGrandTotal(parseInt(dataCarts.price) + parseInt(shipping[0]));
-
     }
 
     return (
         <>
             <Head>
-                <title>Checkouts - Geek Store - Where Developer Shopping</title>
+                <title>Pembayaran - Nide Store - Tempat Belanja Online </title>
             </Head>
             <LayoutWeb>
 
@@ -122,14 +91,14 @@ export default function CheckoutIndex() {
                                 
                                 <div className="card border-0 rounded-3 shadow-sm">
                                     <div className="card-header">
-                                        <i className="fa fa-shopping-cart"></i> Shipping Information
+                                        <i className="fa fa-shopping-cart"></i> Informasi Belanja
                                     </div>
                                     <div className="card-body">
 
                                         <div className="mb-3">
-                                            <label className="mb-2 fw-bold">Province</label>
+                                            <label className="mb-2 fw-bold">Provinsi</label>
                                             <select className="form-select" onChange={(e) => getCityByProvince(e.target.value)}>
-                                                <option value="">-- Select Province --</option>
+                                                <option value="">-- Pilih Provinsi --</option>
                                                 {
                                                     provinces.map((province, index) => (
                                                         <option key={index} value={province.id}>{province.name}</option>
@@ -139,9 +108,9 @@ export default function CheckoutIndex() {
                                         </div>
 
                                         <div className="mb-3">
-                                            <label className="mb-2 fw-bold">City</label>
+                                            <label className="mb-2 fw-bold">Kota</label>
                                             <select className="form-select" onChange={(e) => showCourierExpedition(e.target.value)}>
-                                                <option value="">-- Select City --</option>
+                                                <option value="">-- Pilih Kota --</option>
                                                 {
                                                     cities.map((city, index) => (
                                                         <option key={index} value={city.id}>{city.name}</option>
@@ -152,11 +121,9 @@ export default function CheckoutIndex() {
 
                                         {showCourier &&
                                             <div className="mb-3">
-                                                <label className="mb-2 fw-bold">Shipping Expedition</label>
+                                                <label className="mb-2 fw-bold">Ekspedisi Pengiriman</label>
                                                 <br />
                                                 <div className="form-check">
-
-
                                                     <label className="form-check-label font-weight-bold me-5" htmlFor="ongkos_kirim_tiki">
                                                         <input className="form-check-input select-courier" name="courier" type="radio" id="ongkos_kirim_tiki" value="tiki" onChange={checkOngkir} />
                                                         TIKI
@@ -183,7 +150,7 @@ export default function CheckoutIndex() {
                                         {showOngkir &&
                                             <div className="mb-3" v-if="courier.showService">
                                                 <hr />
-                                                <label className="fw-bold">Shipping Cost</label>
+                                                <label className="fw-bold">Biaya Pengiriman</label>
                                                 <br/>
                                                 <div className="form-check form-check-inline mt-2">
                                                     {
@@ -199,7 +166,7 @@ export default function CheckoutIndex() {
                                         }
 
                                         <div className="mb-3">
-                                            <label className="mb-2 fw-bold">Address</label>
+                                            <label className="mb-2 fw-bold">Alamat</label>
                                             <textarea className="form-control" value={address} onChange={(e) => setAddress(e.target.value)} rows="3" placeholder="Address"></textarea>
                                         </div>
 
@@ -212,17 +179,17 @@ export default function CheckoutIndex() {
                                             <table className="table mb-0 mt-0">
                                                 <tbody>
                                                     <tr>
-                                                        <td style={{ width: '25%' }}>Total Orders</td>
+                                                        <td style={{ width: '25%' }}>Total Pesanan</td>
                                                         <td style={{ width: '1%' }}>:</td>
                                                         <td><strong>Rp. {FormatPrice(dataCarts.price)}</strong></td>
                                                     </tr>
                                                     <tr>
-                                                        <td style={{ width: '25%' }}>Shipping Cost</td>
+                                                        <td style={{ width: '25%' }}>Biaya Pengiriman</td>
                                                         <td style={{ width: '1%' }}>:</td>
                                                         <td><strong>Rp. {FormatPrice(courierCost)}</strong></td>
                                                     </tr>
                                                     <tr>
-                                                        <td style={{ width: '25%' }}>Grand Total</td>
+                                                        <td style={{ width: '25%' }}>Total</td>
                                                         <td style={{ width: '1%' }}>:</td>
                                                         <td><strong>Rp. {FormatPrice(grandTotal)}</strong></td>
                                                     </tr>

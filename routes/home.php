@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\CartController;
 use App\Http\Controllers\Web\HomeController;
+use App\Http\Controllers\Web\SearchController;
 use App\Http\Controllers\Web\ProductController;
 use App\Http\Controllers\Web\CallbackController;
 use App\Http\Controllers\Web\CategoryController;
@@ -35,3 +36,6 @@ Route::post('/checkouts/checkOngkir', [CheckoutController::class, 'checkOngkir']
 Route::post('/checkouts', [CheckoutController::class, 'store'])->name('web.checkouts.store')
     ->middleware('auth');
 Route::post('/callback', CallbackController::class)->name('web.callback');
+
+// LIVE SEARCH
+Route::post('/search', SearchController::class)->name('web.search.index');

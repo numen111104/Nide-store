@@ -18,14 +18,14 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        //get sliders
+        //get Slider terbaru
         $sliders = Slider::latest()->get();
 
-        //get categories 4 items
+        //get 4 data category terbaru
         $categories = Category::latest()->take(4)->get();
 
-        //get products
-        $products = Product::with('productImages.color', 'productSizes')->latest()->take(8)->get();
+        //get 6 data product terbaru
+        $products = Product::with('productImages.color', 'productSizes')->latest()->take(6)->get();
 
         return inertia('Web/Home/Index', [
             'sliders'       => $sliders,

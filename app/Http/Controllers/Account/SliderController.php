@@ -39,6 +39,9 @@ class SliderController extends Controller
         $this->validate($request, [
             'link'      => 'required',
             'image'     => 'required|mimes:png,jpg',
+        ], [
+            'link.required' => 'Linknya mana?',
+            'image.required' => 'Gambarnya mana?',
         ]);
 
         //upload image
@@ -67,7 +70,7 @@ class SliderController extends Controller
         $slider = Slider::findOrFail($id);
 
         //remove image from server
-        Storage::disk('local')->delete('public/sliders/'.basename($slider->image));
+        Storage::disk('local')->delete('public/sliders/' . basename($slider->image));
 
         //delete slider
         $slider->delete();

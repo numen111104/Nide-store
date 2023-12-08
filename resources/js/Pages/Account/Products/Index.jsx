@@ -1,33 +1,18 @@
-//import react  
 import React from "react";
-
-//import layout
 import LayoutAccount from '../../../Layouts/Account';
-
-//import Head, usePage, Link
 import { Head, usePage, Link } from '@inertiajs/inertia-react';
-
-//import permissions
 import hasAnyPermission from '../../../Utils/Permissions';
-
-//import component search
 import Search from '../../../Shared/Search';
-
-// import delete
 import Delete from '../../../Shared/Delete';
-
-//import component pagination
 import Pagination from '../../../Shared/Pagination';
 
 export default function ProductIndex() {
-
-    //destruct props "products"
     const { products } = usePage().props;
 
     return(
         <>
             <Head>
-                <title>Products - Nide Store</title>
+                <title>Produk - Nide Store</title>
             </Head>
             <LayoutAccount>
                 <div className="row mt-5">
@@ -51,7 +36,7 @@ export default function ProductIndex() {
                     <div className="col-12">
                         <div className="card border-0 rounded shadow-sm border-top-success">
                             <div className="card-header">
-                                <span className="font-weight-bold"><i className="fa fa-shopping-bag"></i> Products</span>
+                                <span className="font-weight-bold"><i className="fa fa-shopping-bag"></i> Produk</span>
                             </div>
                             <div className="card-body text-center">                               
                                 <div className="table-responsive">
@@ -61,7 +46,7 @@ export default function ProductIndex() {
                                             <th scope="col" style={{ width: '5%' }}>No.</th>
                                             <th scope="col" style={{ width: '20%' }}>Judul Produk</th>
                                             <th scope="col" style={{ width: '20%' }}>Kategori</th>
-                                            <th scope="col" style={{ width: '15%' }}>Actions</th>
+                                            <th scope="col" style={{ width: '15%' }}>Aksi</th>
                                         </tr>
                                         </thead>
                                         <tbody>

@@ -117,7 +117,7 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
 
         //get relation productImages with pagination
-        $product->setRelation('productImages', $product->productImages()->with('color')->paginate(5));
+        $product->setRelation('productImages', $product->productImages()->with('color')->paginate(2));
 
         //get all colors
         $colors = Color::all();

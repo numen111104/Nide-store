@@ -1,27 +1,17 @@
-//import react  
 import React from "react";
-
-//import layout
 import LayoutAccount from '../../../Layouts/Account';
-
-//import Head, usePage
 import { Head, usePage } from '@inertiajs/inertia-react';
-
-//import component delete
 import Delete from '../../../Shared/Delete';
-
-//import component slider create
 import SliderCreate from './Create';
 
 export default function SliderIndex() {
-
     //destruct props "sliders"
     const { sliders } = usePage().props;
 
     return (
         <>
             <Head>
-                <title>Sliders - Nide Store</title>
+                <title>Slider - Nide Store</title>
             </Head>
             <LayoutAccount>
 
@@ -31,17 +21,17 @@ export default function SliderIndex() {
                     <div className="col-12">
                         <div className="card border-0 rounded shadow-sm border-top-success">
                             <div className="card-header">
-                                <span className="font-weight-bold"><i className="fa fa-images"></i> Image Sliders</span>
+                                <span className="font-weight-bold"><i className="fa fa-images"></i> Gambar Slider</span>
                             </div>
                             <div className="card-body">
                                 <div className="table-responsive">
-                                    <table className="table table-bordered table-striped table-hovered">
+                                    <table className="table table-bordered table-striped table-hovered text-center">
                                         <thead>
                                             <tr>
                                                 <th scope="col" style={{ width: '5%' }}>No.</th>
-                                                <th scope="col" style={{ width: '20%' }}>Image</th>
+                                                <th scope="col" style={{ width: '20%' }}>Gambar</th>
                                                 <th scope="col" style={{ width: '15%' }}>Link</th>
-                                                <th scope="col" style={{ width: '15%' }}>Actions</th>
+                                                <th scope="col" style={{ width: '15%' }}>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>

@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
  * RegisterController
  */
 class RegisterController extends Controller
-{    
+{
     /**
      * index
      *
@@ -21,7 +21,7 @@ class RegisterController extends Controller
     {
         return inertia('Auth/Register');
     }
-    
+
     /**
      * store
      *
@@ -31,19 +31,21 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         // Set Validation
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|confirmed'
-        ],
-        [
-            'name.required' => 'Namamu siapa?',
-            'email.required' => 'Emailmu apa?',
-            'email.email' => 'Emailnya ngaco!',
-            'email.unique' => 'Emailnya sudah terdaftar!',
-            'password.required' => 'Passwordnya apa?',
-            'password.confirmed' => 'Passwordnya kok beda?'
-        ]);
+        $request->validate(
+            [
+                'name' => 'required',
+                'email' => 'required|email|unique:users',
+                'password' => 'required|confirmed'
+            ],
+            [
+                'name.required' => 'Namamu siapa?',
+                'email.required' => 'Emailmu apa?',
+                'email.email' => 'Emailnya ngaco!',
+                'email.unique' => 'Emailnya sudah terdaftar!',
+                'password.required' => 'Passwordnya apa?',
+                'password.confirmed' => 'Passwordnya kok beda?'
+            ]
+        );
 
         // insert data user
         $user = User::create([
@@ -56,7 +58,7 @@ class RegisterController extends Controller
         $role = Role::findByName('customer');
 
         // assign role 'customer' to user
-        $user ->assignRole($role);
+        $user->assignRole($role);
 
         // redirect ke login
         return redirect()->route('login');
