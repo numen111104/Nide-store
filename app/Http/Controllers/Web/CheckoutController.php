@@ -89,6 +89,12 @@ class CheckoutController extends Controller
 
         DB::transaction(function () use ($duitkuConfig, $request) {
 
+            $this->validate($request, [
+                'address' => 'required',
+            ], [
+                'address.required' => 'Alamatmu harus diisi!',
+            ]);
+
             $paymentAmount      = $request->grand_total;
             $email              = $request->email;
             $merchantOrderId    = 'INV-' . time();
@@ -97,15 +103,6 @@ class CheckoutController extends Controller
             $callbackUrl        = config('app.url') . '/callback'; // url for callback
             $returnUrl          = config('app.url') . '/account/transactions/' . $merchantOrderId; // url for redirect
             $expiryPeriod       = 1440; // set the expired time in minutes
-
-            //set validate
-            $request->validate([
-                'province_id'       => 'required',
-
-            ],
-                [
-                    'province_id.required' => 'Pilih Provinsi Terlebih Dahulu', 
-                ]);
 
             //create transaction
             $transaction = Transaction::create([
