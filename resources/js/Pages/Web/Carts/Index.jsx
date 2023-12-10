@@ -21,7 +21,7 @@ export default function CartIndex() {
     return (
         <>
             <Head>
-                <title>Carts - Nide Store - Tempat Belanja Online</title>
+                <title>Keranjang - Nide Store - Tempat Belanja Online</title>
             </Head>
             <LayoutWeb>
 
@@ -52,15 +52,15 @@ export default function CartIndex() {
                                                                                     Qty : <strong>{cart.qty}</strong>
                                                                                 </div>
                                                                                 <div className="mt-3">
-                                                                                    Size : <strong>{cart.size}</strong>
+                                                                                    Ukuran : <strong>{cart.size}</strong>
                                                                                 </div>
                                                                             </div>
                                                                             <div className="col-md-6 col-6">
                                                                                 <div>
-                                                                                    Color : <img src={cart.color_image} width={'20'} className="rounded-circle mb-1" />
+                                                                                    Icon Warna : <img src={cart.color_image} width={'20'} className="rounded-circle mb-1" />
                                                                                 </div>
                                                                                 <div className="mt-3">
-                                                                                    Color Name : <strong>{cart.color}</strong>
+                                                                                    Warna : <strong>{cart.color}</strong>
                                                                                 </div>
                                                                             </div>
                                                                             <div className="col-md-3 col-12 text-end">
@@ -87,7 +87,7 @@ export default function CartIndex() {
                                         <div className="card-body">
                                             <div className="col-sm-12 empty-cart-cls text-center">
                                                 <img src="/assets/images/shopping-cart.png" width="150" height="150" className="img-fluid mb-4 mr-3" />
-                                                <h6><strong>Shopping Carts is Empty 😁</strong></h6>
+                                                <h6><strong>Keranjangnya masih kosong😁</strong></h6>
                                             </div>
                                         </div>
                                     </div>
@@ -97,14 +97,14 @@ export default function CartIndex() {
                                     <div className="col-md-12">
                                         <div className="card border-0 rounded-3 shadow-sm">
                                             <div className="card-body">
-                                                <h6 className="mb-0">Total Orders : <strong>Rp. {FormatPrice(dataCarts.price)}</strong></h6>
+                                                <h6 className="mb-0">Jumlah Pesanan : <strong>Rp. {FormatPrice(dataCarts.price)}</strong></h6>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-md-12 mt-4">
                                         {carts.length > 0
-                                            ? <Link href="/checkouts" className="btn btn-success btn-md border-0 shadow rounded-3 w-100">Next Payment <i className="fa fa-long-arrow-alt-right"></i></Link>
-                                            : <button className="btn btn-success btn-md border-0 shadow rounded-3 w-100" disabled>Next Payment <i className="fa fa-long-arrow-alt-right"></i></button>
+                                            ? <Link href="/checkouts" className="btn btn-success btn-md border-0 shadow rounded-3 w-100">Lanjutkan Pembayaran <i className="fa fa-long-arrow-alt-right"></i></Link>
+                                            : <button className="btn btn-success btn-md border-0 shadow rounded-3 w-100" disabled>Lanjutkan Pembayaran <i className="fa fa-long-arrow-alt-right"></i></button>
                                         }
                                     </div>
                                 </div>

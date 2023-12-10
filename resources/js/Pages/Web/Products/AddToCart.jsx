@@ -50,8 +50,8 @@ export default function AddToCart({ product_id, productImage, color, colorImage,
 
                 //show alert
                 Swal.fire({
-                    title: 'Success!',
-                    text: 'Add to Cart successfully!',
+                    title: 'Sukses!',
+                    text: 'Produk ditambahkan ke keranjang',
                     icon: 'success',
                     showConfirmButton: false,
                     timer: 1500
@@ -63,7 +63,7 @@ export default function AddToCart({ product_id, productImage, color, colorImage,
     return (
         <>
             <div className="justify-content-center fixed-bottom">
-                 <button onClick={() => addToCart()} className="btn btn-success btn-sm btn-cart p-2 pe-2"> <i className="fa fa-shopping-cart me-2"></i> Add to Cart</button>
+                 <button onClick={() => addToCart()} className="btn btn-success btn-sm btn-cart p-2 pe-2"> <i className="fa fa-shopping-cart me-2"></i> Tambah ke Keranjang</button>
             </div>
         </>
     )

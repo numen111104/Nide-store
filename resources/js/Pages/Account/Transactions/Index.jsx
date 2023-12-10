@@ -5,6 +5,7 @@ import hasAnyPermission from '../../../Utils/Permissions';
 import FormatPrice from '../../../Utils/FormatPrice';
 import Search from '../../../Shared/Search';
 import Pagination from '../../../Shared/Pagination';
+import Delete from '../../../Shared/Delete';
 
 export default function TransactionIndex() {
 
@@ -66,6 +67,9 @@ export default function TransactionIndex() {
                                                     <td className="text-center">
                                                         {hasAnyPermission(['transactions.show']) &&
                                                             <Link href={`/account/transactions/${transaction.invoice}`} className="btn btn-dark btn-sm me-2"><i className="fa fa-list-ul"></i></Link>
+                                                        }
+                                                        {hasAnyPermission(['transactions.delete']) &&
+                                                            <Delete URL={'/account/transactions'} id={transaction.id} />
                                                         }
                                                     </td>
                                                 </tr>

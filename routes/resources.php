@@ -47,6 +47,8 @@ Route::prefix('account')->group(function () {
         //route transactions show
         Route::get('/transactions/{invoice}', [TransactionController::class, 'show'])->name('account.transactions.show')
             ->middleware('permission:transactions.show');
+            //route transactions destroy
+        Route::delete('/transactions/{id}', [TransactionController::class, 'destroy'])->name('account.transactions.destroy');
         //route resource sliders
         Route::resource('/sliders', SliderController::class, ['except' => ['create', 'show', 'edit', 'update'], 'as' => 'account'])
             ->middleware('permission:sliders.index|sliders.create|sliders.delete');

@@ -26,10 +26,10 @@ export default function StoreCheckout({ provinceID, cityID, courierName, courier
                 //show alert
                 Swal.fire({
                     title: 'Sukses!',
-                    text: 'Pembayaran berhasil!',
+                    text: 'Silahkan lakukan pembayaran.',
                     icon: 'success',
                     showConfirmButton: false,
-                    timer: 3000
+                    timer: 3000,
                 });
 
             }

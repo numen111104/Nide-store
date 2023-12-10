@@ -63,4 +63,15 @@ class TransactionController extends Controller
             'transaction' => $transaction,
         ]);
     }
+
+    public function destroy($id) {
+        //find transaction by id
+        $transaction = Transaction::findOrFail($id);
+
+        //delete transaction
+        $transaction->delete();
+
+        //redirect
+        return redirect()->route('account.transactions.index');
+    }
 }
