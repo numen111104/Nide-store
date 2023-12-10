@@ -71,7 +71,7 @@ export default function ProductShow() {
                                     )}
 
                                     <div className="mb-3">
-                                        <label className="form-label fw-bold">Color</label>
+                                        <label className="form-label fw-bold">Warna</label>
                                         <select className="form-select" value={colorID} onChange={(e) => setColorID(e.target.value)}>
                                             <option value="">-- Pilih Warna --</option>
                                             {

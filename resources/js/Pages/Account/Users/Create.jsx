@@ -98,7 +98,7 @@ export default function UserCreate() {
                                         <div className="col-md-6">
                                             <div className="mb-3">
                                                 <label className="form-label fw-bold">
-                                                    Email Address
+                                                    Alamat Email
                                                 </label>
                                                 <input
                                                     type="text"

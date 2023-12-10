@@ -151,7 +151,7 @@ class CheckoutController extends Controller
 
             //add ongkir to item details
             $ongkir = array(
-                'name'      => 'Shipping Cost : ' . $request->courier_name,
+                'name'      => 'Shipping Cost: ' . $request->courier_name,
                 'price'     => (int) $request->courier_cost,
                 'quantity'  => 1
             );
@@ -186,6 +186,7 @@ class CheckoutController extends Controller
             );
 
             try {
+                
                 // createInvoice Request
                 $responseDuitkuPop = Pop::createInvoice($payload, $duitkuConfig);
 
